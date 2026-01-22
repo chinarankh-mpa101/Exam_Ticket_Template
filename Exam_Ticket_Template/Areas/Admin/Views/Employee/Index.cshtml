@@ -1,0 +1,41 @@
+﻿@using Exam_Ticket_Template.ViewModels.EmployeeViewModels
+@model List<EmployeeGetVM>
+<div class="container">
+
+    <div class="row">
+        <div class="col-2">
+            <a class="btn btn-success" asp-action="Create" asp-controller="Employee">Create </a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">ImagePath</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Department Name</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employees in Model)
+                {
+                    <tr>
+                        <th scope="row">@employees.Id</th>
+                        <td>
+                            <img src="~/assets/images/@employees.ImagePath"/>
+                        </td>
+                        <td>@employees.Name</td>
+                        <td>@employees.DepartmentName</td>
+                        <td>
+                            <a class="btn btn-warning" asp-action="Update" asp-controller="Employee" asp-route-id="@employees.Id">Update</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-controller="Employee" asp-route-id="@employees.Id">Delete</a>
+                        </td>
+
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>

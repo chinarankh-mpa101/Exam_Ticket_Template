@@ -1,0 +1,29 @@
+﻿@using Exam_Ticket_Template.ViewModels.EmployeeViewModels
+
+@model EmployeeCreateVM
+<div class="container">
+    <div class="row">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="All"></div>
+            <div class="form-group">
+                <label asp-for="Image">Image</label>
+                <input asp-for="Image" class="form-control" placeholder="Enter image">
+                <span asp-validation-for="Image"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name">Name</label>
+                <input asp-for="Name" class="form-control" placeholder="Enter name">
+                <span asp-validation-for="Name"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DepartmentId">Departments</label>
+                <select asp-for="DepartmentId" asp-items="@ViewBag.Departments">
+                    <span asp-validation-for="DepartmentId"></span>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">Create</button>
+        </form>
+
+    </div>
+</div>

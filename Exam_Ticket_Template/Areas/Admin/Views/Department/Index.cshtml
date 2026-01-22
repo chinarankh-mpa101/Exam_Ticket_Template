@@ -1,0 +1,35 @@
+﻿@using Exam_Ticket_Template.ViewModels.DepartmentViewModels
+@model List<DepartmentGetVM>
+<div class="container">
+
+    <div class="row">
+        <div class="col-2">
+            <a class="btn btn-success" asp-action="Create" asp-controller="Department">Create </a>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var departments in Model)
+                {
+                    <tr>
+                        <th scope="row">@departments.Id</th>
+                        <td>@departments.Name</td>
+                        <td>
+                            <a class="btn btn-warning" asp-action="Update" asp-controller="Department" asp-route-id="@departments.Id">Update</a>
+                            <a class="btn btn-danger" asp-action="Delete" asp-controller="Department" asp-route-id="@departments.Id">Delete</a>
+                        </td>
+
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+</div>
