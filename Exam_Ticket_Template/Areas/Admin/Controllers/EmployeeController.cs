@@ -2,6 +2,7 @@
 using Exam_Ticket_Template.Helpers;
 using Exam_Ticket_Template.Models;
 using Exam_Ticket_Template.ViewModels.EmployeeViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace Exam_Ticket_Template.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles ="Admin")]
     public class EmployeeController : Controller
     {
         private readonly IWebHostEnvironment _environment;

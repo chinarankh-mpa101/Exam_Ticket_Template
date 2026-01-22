@@ -1,6 +1,7 @@
 ﻿using Exam_Ticket_Template.Contexts;
 using Exam_Ticket_Template.Models;
 using Exam_Ticket_Template.ViewModels.DepartmentViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Threading.Tasks;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 namespace Exam_Ticket_Template.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles ="Admin")]
     public class DepartmentController(AppDbContext _context) : Controller
     {
         public async Task<IActionResult> Index()
